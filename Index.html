@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soul Care - Mental Health App</title>
+    <link href="../static/merge styling.css" rel="stylesheet" type="text/css">
+    <style>
+        /* Existing styles here */
+
+/* Additional CSS for header behavior */
+header {
+    transition: top 0.3s;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure it stays on top */
+}
+
+.hidden {
+    top: -150px; /* Adjust this value to match the header's height */
+}
+
+        /* Importing Google Font */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        /* General Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff; /* Alice Blue */
+            color: #333333; /* Dark Gray */
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        h1, h2, h3 {
+            color: #333333;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            max-width: 1200px;
+            padding: 20px;
+        }
+
+        /* Header and Navigation */
+        header {
+            background: linear-gradient(to right, #ff6347, #4b0082); /* Tomato Red to Indigo */
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s ease;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #00ffcc; /* Light Blue */
+            text-shadow: 0 0 5px rgba(0, 255, 204, 0.7);
+        }
+
+        /* Section Styles */
+        section {
+            margin-bottom: 40px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #ffffff; /* White */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+        }
+
+        section:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+            color: #4b0082; /* Indigo */
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 3px rgba(75, 0, 130, 0.2);
+        }
+
+        form p {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100px;
+            border-radius: 5px;
+            border: 1px solid #cccccc;
+            padding: 10px;
+            resize: vertical;
+            transition: border-color 0.3s ease;
+        }
+
+        textarea:focus {
+            border-color: #ff6347; /* Tomato Red */
+            outline: none;
+        }
+
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #cccccc;
+            margin-bottom: 10px;
+            transition: border-color 0.3s ease;
+        }
+
+        select:focus {
+            border-color: #ff6347; /* Tomato Red */
+            outline: none;
+        }
+
+        button {
+            background-color: #ff6347; /* Tomato Red */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        button:hover {
+            background-color: #e5533d; /* Darker Tomato Red */
+        }
+
+        /* Image and Caption Styles */
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-top: 20px;
+        }
+
+        img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .caption {
+            text-align: center;
+            font-size: 1em;
+            color: #666666; /* Light Gray */
+            margin-top: 10px;
+            font-style: italic;
+            transition: color 0.3s ease;
+        }
+
+        .caption:hover {
+            color: #4b0082; /* Indigo */
+        }
+
+        /* Quotes Styles */
+        blockquote {
+            border-left: 4px solid #ff6347; /* Tomato Red */
+            padding-left: 20px;
+            margin: 20px 0;
+            font-style: italic;
+            color: #666666; /* Light Gray */
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        blockquote:hover {
+            background-color: #fff7f7;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Researchers Section */
+        article {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #dddddd;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        article:hover {
+            background-color: #ffffff;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        article img {
+            border-radius: 50%;
+            margin-right: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        article h3 {
+            margin: 0;
+            font-size: 1.5em;
+            color: #4b0082; /* Indigo */
+        }
+
+        article p {
+            color: #333333; /* Dark Gray */
+            margin: 0;
+        }
+
+        /* Contact Section */
+        #contact-us ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        #contact-us li {
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #4b0082; /* Indigo */
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1em;
+            letter-spacing: 1px;
+        }
+
+        footer a {
+            color: #00ffcc; /* Light Blue */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #ff6347; /* Tomato Red */
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            article {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            header h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            button {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                width: 100%;
+            }
+
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            h2 {
+                font-size: 1.3em;
+            }
+
+            nav ul li {
+                margin: 0 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <script src="https://cdn.botpress.cloud/webchat/v2/inject.js"></script>
+<script src="https://mediafiles.botpress.cloud/f2e16f03-c13f-48a0-b996-599414c25a8e/webchat/v2/config.js"></script>
+    <header>
+        <h1>Welcome to Soul Care</h1>
+        <nav>
+            <ul>
+                <li><a href="#self-assessment">Self Assessment</a></li>
+                <li><a href="#positive-reels">Positive Reels</a></li>
+                <li><a href="#videos">Videos</a></li>
+                <li><a href="#music">Music</a></li>
+                <li><a href="#quotes">Quotes</a></li>
+                <li><a href="#researchers">Researchers</a></li>
+                <li><a href="#doctors">Doctors</a></li>
+                <li><a href="#contact-us">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section id="self-assessment">
+            <h2>Self Assessment Toolkit</h2>
+            <form action="{{ url_for('submit') }}" method="post">
+                <p>Is there anything you want to talk about?</p>
+                <textarea name="talk-about"></textarea>
+
+                <p>How would you like things to be different?</p>
+                <textarea name="different"></textarea>
+
+                <p>How are you sleeping?</p>
+                <input name="sleeping" type="radio" value="good"> Good
+                <input name="sleeping" type="radio" value="bad"> Bad
+
+                <p>How are you feeling today?</p>
+                <select name="feeling">
+                    <option value="happy">Happy</option>
+                    <option value="sad">Sad</option>
+                    <option value="anxious">Anxious</option>
+                    <option value="angry">Angry</option>
+                    <option value="calm">Calm</option>
+                    <option value="stressed">Stressed</option>
+                </select>
+
+                <p>Are you currently receiving any professional help or treatment?</p>
+                <input name="treatment" type="radio" value="yes"> Yes
+                <input name="treatment" type="radio" value="no"> No
+                <br>
+                <br>
+                    <button type="submit">Submit</button>
+                </form>
+                
+                
+        </section>
+
+        <section id="positive-reels">
+            <h2>Positive Reels</h2>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/9AXeyL7qQWg" title="Positive Reel Video"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/vBIWwGlthpM" title="Positive Reel Video"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/fUTorMCrKco" title="Positive Reel Video"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/hzrnnclOFb8" title="Positive Reel Video"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <section id="videos">
+            <h2>Videos</h2>
+            <dIv>
+            <iframe src="https://www.youtube.com/embed/dk-3MPvFQmw?si=Gsyk79l3SBqfqx_8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </dIv>
+            <iframe src="https://www.youtube.com/embed/rkZl2gsLUp4" title="Educational Video"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+                    <div>
+            <iframe src="https://www.youtube.com/embed/b8n-wpvBjrw?si=9Bcm-hzhQ3XsddmQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div>
+            <iframe src="https://www.youtube.com/embed/6Yhf3A39vb0?si=6OLYOvdFd84NC_ge" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        </section>
+
+        <section id="music">
+            <h2>Music</h2>
+            <iframe src="https://www.youtube.com/embed/FjHGZj2IjBk?si=sYJmENPGyf4LhrEU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/AGn-SUF3o6E?si=UKUbNb8yERS7IEEM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/_4kHxtiuML0?si=72KrNoWqmW1h-j7t" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </section>
+
+        <section id="quotes">
+            <h2>Inspirational Quotes</h2>
+            <blockquote>
+                "The greatest glory in living lies not in never falling, but in rising every time we fall." – Nelson Mandela
+            </blockquote>
+            <blockquote>
+                "Life is what happens when you're busy making other plans." – John Lennon
+            </blockquote>
+            <blockquote>
+                "You only live once, but if you do it right, once is enough." – Mae West
+            </blockquote>
+            <blockquote>
+                "In the end, we will remember not the words of our enemies, but the silence of our friends." – Martin Luther King Jr.
+            </blockquote>
+            <blockquote>
+                "The purpose of our lives is to be happy." – Dalai Lama
+            </blockquote>
+            <blockquote>
+                "Get busy living or get busy dying." – Stephen King
+            </blockquote>
+        </section>
+
+        <section id="researchers">
+            <h2>Notable Researchers in Mental Health</h2>
+            <article>
+                <img src="https://laskerfoundation.org/wp-content/uploads/2021/01/beck_aaron.jpg" alt="Researcher 1" height="100" width="100">
+                <div>
+                    <h3>Dr. Aaron T. Beck</h3>
+                    <p>Considered the father of cognitive therapy, Dr. Beck developed the cognitive triad, which explains how thoughts, feelings, and behaviors are interconnected in mental health.</p>
+                </div>
+            </article>
+            <article>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdERhMiN2t0AtTEqpPP0exLtbIvDL9uJEv0Q&s" alt="Researcher 2" height="100" width="100">
+                <div>
+                    <h3>Dr. Judith Beck</h3>
+                    <p>Dr. Beck has contributed significantly to the field of cognitive therapy and is known for her work on cognitive therapy training and research.</p>
+                </div>
+            </article>
+            <article>
+                <img src="https://res.cloudinary.com/psychwire/image/upload/c_fill,g_face,q_auto,f_auto,ar_1:1,w_1440,h_1440/v1567730814/pw-client-uploads/uu2iygvodisp8amzrg3o.jpg" alt="Researcher 3" height="100" width="100">
+                <div>
+                    <h3>Dr. Marsha Linehan</h3>
+                    <p>Dr. Linehan is known for developing Dialectical Behavior Therapy (DBT), a treatment for borderline personality disorder that emphasizes emotional regulation and mindfulness.</p>
+                </div>
+            </article>
+            <article>
+                <img src="https://cdn2.psychologytoday.com/assets/styles/crop_1_1_180x180/public/field_user_blogger_photo/irvyalom.png.jpg?itok=r8Btf7aS" alt="Researcher 4" height="100" width="100">
+                <div>
+                    <h3>Dr. Irvin D. Yalom</h3>
+                    <p>A psychiatrist and psychotherapist, Dr. Yalom has made contributions to the field of group therapy and is known for his work in existential psychotherapy.</p>
+                </div>
+            </article>
+            <article>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaRcFr_-qfu6_ecKPLBVpLy7fwvZewQ0JjJQ&s" alt="Researcher 5" height="100" width="100">
+                <div>
+                    <h3>Dr. Bessel van der Kolk</h3>
+                    <p>Dr. van der Kolk's research on trauma has transformed the understanding and treatment of PTSD, emphasizing the importance of body-centered therapies.</p>
+                </div>
+            </article>
+            <article>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScfCWHyObd43xwhn-C3gv3mueZVx9tp7oJdg&s" alt="Researcher 6" height="100" width="100">
+                <div>
+                    <h3>Dr. Gabor Maté</h3>
+                    <p>Dr. Maté is known for his work on addiction, stress, and childhood development, emphasizing the connection between emotional and physical health.</p>
+                </div>
+            </article>
+        </section>
+
+        <section id="doctors">
+            <h2>Prominent Doctors in Mental Health</h2>
+            <article>
+                <img src="https://cdn.prod.website-files.com/63af4af58f22085cdedf099b/641fadc2f4ae4908a871188e_tom_insel.jpeg" alt="Doctor 1" height="100" width="100">
+                <div>
+                    <h3>Dr. Thomas Insel</h3>
+                    <p>A former director of the National Institute of Mental Health, Dr. Insel has advocated for mental health research and treatment innovations.</p>
+                </div>
+            </article>
+            <article>
+                <img src="https://childmind.org/wp-content/uploads/2022/07/Siegal_Daniel.jpg" alt="Doctor 2" height="100" width="100">
+                <div>
+                    <h3>Dr. Dan Siegel</h3>
+                    <p>Known for his work on interpersonal neurobiology, Dr. Siegel emphasizes the integration of mind and brain for mental health and well-being.</p>
+                </div>
+            </article>
+            <article>
+                <img src="https://i1.rgstatic.net/ii/profile.image/273584577880075-1442239054398_Q512/David-Burns-12.jpg" alt="Doctor 3" height="100" width="100">
+                <div>
+                    <h3>Dr. David Burns</h3>
+                    <p>Dr. Burns is a prominent figure in cognitive therapy and is known for his popular self-help book "Feeling Good: The New Mood Therapy."</p>
+                </div>
+            </article>
+            <article>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZ2Bjdiup023qUidRIi0mUSG7BQfIlQvq35Q&s" alt="Doctor 4" height="100" width="100">
+                <div>
+                    <h3>Dr. Steven Hayes</h3>
+                    <p>Dr. Hayes is the founder of Acceptance and Commitment Therapy (ACT) and has contributed significantly to behavioral health.</p>
+                </div>
+            </article>
+            <article>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRm_hi_769NaYsOYMjkn3tF69hxlgCCpXEmAw&s" alt="Doctor 5" height="100" width="100">
+                <div>
+                    <h3>Dr. Richard Schwartz</h3>
+                    <p>Dr. Schwartz developed Internal Family Systems (IFS), a therapeutic approach that focuses on understanding and integrating different parts of the self.</p>
+                </div>
+            </article>
+        </section>
+
+        <section id="contact-us">
+            <h2>Contact Us</h2>
+            <p>If you have any questions or would like to reach out for support, feel free to contact us:</p>
+            <ul>
+                <li>Email: support@soulcareapp.com</li>
+                <li>Phone: (123) 456-7890</li>
+                <li>Follow us on <a href="https://twitter.com/soulcareapp" target="_blank">Twitter</a> | <a href="https://www.instagram.com/soulcareapp/" target="_blank">Instagram</a> | <a href="https://www.facebook.com/soulcareapp" target="_blank">Facebook</a></li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Soul Care. All rights reserved. | <a href="#privacy-policy">Privacy Policy</a></p>
+    </footer>
+    
+    <script>
+        let lastScrollTop = 0;
+        const header = document.querySelector('header');
+    
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > lastScrollTop) {
+                // Scrolling down
+                header.classList.add('hidden');
+            } else {
+                // Scrolling up
+                header.classList.remove('hidden');
+            }
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+        });
+    </script>
+    
+</body>
+
+</html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soul Care - Mental Health App</title>
+    <link href="merge styling.css" rel="stylesheet" type="text/css">
+    <style>
+        /* Existing styles here */
+
+        /* Additional CSS for header behavior */
+        header {
+            transition: top 0.3s;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000; /* Ensure it stays on top */
+        }
+
+        .hidden {
+            top: -150px; /* Adjust this value to match the header's height */
+        }
+
+        /* Importing Google Font */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        /* General Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff; /* Alice Blue */
+            color: #333333; /* Dark Gray */
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: #333333;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            max-width: 1200px;
+            padding: 20px;
+        }
+
+        /* Header and Navigation */
+        header {
+            background: linear-gradient(to right, #ff6347, #4b0082); /* Tomato Red to Indigo */
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s ease;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: colorChange 3s infinite;
+        }
+
+        @keyframes colorChange {
+            0% {
+                color: #ff6347; /* Tomato Red */
+            }
+
+            25% {
+                color: #00ffcc; /* Light Blue */
+            }
+
+            50% {
+                color: #4b0082; /* Indigo */
+            }
+
+            75% {
+                color: #ff00ff; /* Magenta */
+            }
+
+            100% {
+                color: #ff6347; /* Tomato Red */
+            }
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #00ffcc; /* Light Blue */
+            text-shadow: 0 0 5px rgba(0, 255, 204, 0.7);
+        }
+
+        /* Section Styles */
+        section {
+            margin-bottom: 40px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #ffffff; /* White */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+        }
+
+        section:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+            color: #4b0082; /* Indigo */
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 3px rgba(75, 0, 130, 0.2);
+        }
+
+        form p {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100px;
+            border-radius: 5px;
+            border: 1px solid #cccccc;
+            padding: 10px;
+            resize: vertical;
+            transition: border-color 0.3s ease;
+        }
+
+        textarea:focus {
+            border-color: #ff6347; /* Tomato Red */
+            outline: none;
+        }
+
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #cccccc;
+            margin-bottom: 10px;
+            transition: border-color 0.3s ease;
+        }
+
+        select:focus {
+            border-color: #ff6347; /* Tomato Red */
+            outline: none;
+        }
+
+        button {
+            background-color: #ff6347; /* Tomato Red */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        button:hover {
+            background-color: #e5533d; /* Darker Tomato Red */
+        }
+
+        /* Image and Caption Styles */
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-top: 20px;
+        }
+
+        img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .caption {
+            text-align: center;
+            font-size: 1em;
+            color: #666666; /* Light Gray */
+            margin-top: 10px;
+            font-style: italic;
+            transition: color 0.3s ease;
+        }
+
+        .caption:hover {
+            color: #4b0082; /* Indigo */
+        }
+
+        /* Quotes Styles */
+        blockquote {
+            border-left: 4px solid #ff6347; /* Tomato Red */
+            padding-left: 20px;
+            margin: 20px 0;
+            font-style: italic;
+            color: #666666; /* Light Gray */
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        blockquote:hover {
+            background-color: #fff7f7;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Researchers Section */
+        article {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #dddddd;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        article:hover {
+            background-color: #ffffff;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        article img {
+            border-radius: 50%;
+            margin-right: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        article h3 {
+            margin: 0;
+            font-size: 1.5em;
+            color: #4b0082; /* Indigo */
+        }
+
+        article p {
+            color: #333333; /* Dark Gray */
+            margin: 0;
+        }
+
+        /* Contact Section */
+        #contact-us ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        #contact-us li {
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #4b0082; /* Indigo */
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1em;
+        }
+
+        footer a {
+            color: #00ffcc; /* Light Blue */
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: white;
+        }
+    </style>
+</head>
+</html>

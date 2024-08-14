@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soul Care - Response Page</title>
+    <link href="../static/merge styling.css" rel="stylesheet" type="text/css">
+    <style>
+        /* Your existing styles here */
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff;
+            color: #333333;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        h1, h2, h3 {
+            color: #333333;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            max-width: 1200px;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(to right, #ff6347, #4b0082);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s ease;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #00ffcc;
+            text-shadow: 0 0 5px rgba(0, 255, 204, 0.7);
+        }
+
+        .response-section {
+            margin-top: 40px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .response-section:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .response-section h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #4b0082;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 3px rgba(75, 0, 130, 0.2);
+        }
+
+        .response-content {
+            font-size: 1.2em;
+            color: #333333;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .response-button {
+            background-color: #ff6347;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .response-button:hover {
+            background-color: #e5533d;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Response from Soul Care</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html#self-assessment">Self Assessment</a></li>
+                <li><a href="index.html#positive-reels">Positive Reels</a></li>
+                <li><a href="index.html#videos">Videos</a></li>
+                <li><a href="index.html#music">Music</a></li>
+                <li><a href="index.html#quotes">Quotes</a></li>
+                <li><a href="index.html#researchers">Researchers</a></li>
+                <li><a href="index.html#doctors">Doctors</a></li>
+                <li><a href="index.html#contact-us">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="response-section">
+            <h2>Thank You for Your Submission</h2>
+            <div class="response-content">
+                <p>Your responses have been received and will be reviewed by our team. We appreciate your trust in sharing your thoughts and feelings with us.</p>
+                <p>In the meantime, we encourage you to explore more resources on our platform that might be helpful for your mental health journey.</p>
+            </div>
+            <a href="{{ url_for('index') }}" class="response-button">Return to Home</a>
+        </section>
+
+        <!-- List of Submitted Responses -->
+        <section class="response-section">
+            <h2>All Submitted Responses</h2>
+            {% for response in responses %}
+            <div class="response-content">
+            </div>
+            <hr>
+            {% endfor %}
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Soul Care. All rights reserved.</p>
+        <p>Explore more about mental health on our <a href="index.html">main page</a>.</p>
+    </footer>
+</body>
+
+</html>
